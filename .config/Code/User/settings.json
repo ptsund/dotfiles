@@ -1,0 +1,16 @@
+{
+    "workbench.startupEditor": "none",
+    "workbench.sideBar.location": "right",
+    "workbench.editor.untitled.hint": "hidden",
+    "window.menuBarVisibility": "hidden",
+    "workbench.colorTheme": "doom-one",
+    "workbench.colorCustomizations": {
+        "editor.background": "#111111",
+        "sideBar.background": "#191919",
+        "tab.inactiveBackground": "#191919",
+        "tab.hoverBackground": "#222222",
+        "editorGroupHeader.tabsBackground": "#191919",
+        "activityBar.background": "#222222",
+        "activityBar.border": "#222222"
+    }
+}
