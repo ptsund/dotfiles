@@ -6,6 +6,7 @@
 
 nitrogen
 picom
+pavucontrol
 
 **PyPi**
 
