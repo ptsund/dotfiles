@@ -1,6 +1,13 @@
 # qtile
 
-**Requirements**
+## Requirements
+
+**Packages**
+
+nitrogen
+picom
+
+**PyPi**
 
 iwlib
 psutil
