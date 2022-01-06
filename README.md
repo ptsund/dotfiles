@@ -13,6 +13,10 @@ iwlib
 psutil
 dbus-next
 
+**Fonts**
+
+[Nerd Fonts](https://github.com/ryanoasis/nerd-fonts/#font-installation)
+
 # vim
 
 ## Setup
