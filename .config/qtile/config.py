@@ -8,15 +8,57 @@ from libqtile.lazy import lazy
 import subprocess
 import shlex
 
+def run_once(cmdline):
+    cmd = shlex.split(cmdline)
+    try:
+        subprocess.check_call(['pgrep', cmd[0]])
+    except:
+        run(cmdline)
+
+def run(cmdline):
+    subprocess.Popen(shlex.split(cmdline))
+
+@lazy.function
+def suspend(qtile):
+    run('systemctl suspend')
+
+@lazy.function
+def playpause(qtile):
+    run('dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause')
+
+@lazy.function
+def prev_track(qtile):
+    run('dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous')
+
+@lazy.function
+def next_track(qtile):
+    run('dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next')
+
+@lazy.function
+def lower_volume(qtile):
+    run('pactl set-sink-volume @DEFAULT_SINK@ -2%')
+
+@lazy.function
+def raise_volume(qtile):
+    run('pactl set-sink-volume @DEFAULT_SINK@ +2%')
+
+@lazy.function
+def mute_sink(qtile):
+    run('pactl set-sink-mute @DEFAULT_SINK@ toggle')
+
+@lazy.function
+def mute_source(qtile):
+    run('pactl set-source-mute @DEFAULT_SOURCE@ toggle')
+
 mod = 'mod4'
 margin=14
 
+# https://github.com/qtile/qtile/blob/master/libqtile/backend/x11/xkeysyms.py
 keys = [
     Key([mod], 'h', lazy.layout.left(), desc='Move focus to left'),
     Key([mod], 'l', lazy.layout.right(), desc='Move focus to right'),
     Key([mod], 'j', lazy.layout.down(), desc='Move focus down'),
     Key([mod], 'k', lazy.layout.up(), desc='Move focus up'),
-    # Key([mod], 'space', lazy.layout.next(), desc='Move window focus to other window'),
 
     Key([mod, 'shift'], 'h', lazy.layout.shuffle_left(), desc='Move window to the left'),
     Key([mod, 'shift'], 'l', lazy.layout.shuffle_right(), desc='Move window to the right'),
@@ -34,60 +76,99 @@ keys = [
     Key([mod], 'Tab', lazy.next_layout(), desc='Toggle between layouts'),
     Key([mod, 'control'], 'q', lazy.shutdown(), desc='Shutdown Qtile'),
     Key([mod, 'control'], 'r', lazy.restart(), desc='Restart Qtile'),
-    Key([mod], 'comma', lazy.prev_screen(), desc='Move focus to previous screen'),
-    Key([mod], 'period', lazy.next_screen(), desc='Move focus to next screen'),
+    Key([mod, 'control'], 's', suspend, desc='Suspend the computer'),
+    Key([mod], 'comma', lazy.to_screen(1), desc='Move focus to first screen'),
+    Key([mod], 'period', lazy.to_screen(0), desc='Move focus to second screen'),
+    Key([mod], 'minus', lazy.to_screen(2), desc='Move focus to third screen'),
 
     Key([mod], 'space', lazy.spawncmd(), desc='Spawn a command using a prompt widget'),
     Key([mod], 'Return', lazy.spawn('alacritty'), desc='Launch terminal'),
     Key([mod], 'b', lazy.spawn('firefox'), desc='Launch browser'),
     Key([mod], 'e', lazy.spawn('code'), desc='Launch editor'),
-    Key([mod], 'm', lazy.spawn('spotify'), desc='Launch music app')
-]
+    Key([mod], 'm', lazy.spawn('spotify'), desc='Launch music app'),
+
+    Key([mod, 'mod1'], 'space', playpause, desc='Play/pause music'),
+    Key([mod, 'mod1'], 'p', prev_track, desc='Previous soundtrack'),
+    Key([mod, 'mod1'], 'n', next_track, desc='Next soundtrack'),
+    Key([mod, 'mod1'], 'KP_Subtract', lower_volume, desc='Lower volume'),
+    Key([mod, 'mod1'], 'KP_Add', raise_volume, desc='Raise volume'),
+    Key([mod, 'mod1'], 'm', mute_sink, desc='Mute sound'),
+    Key([mod, 'mod1'], 'i', mute_source, desc='Mute microphone'),
+] 
 
 groups = [
-    Group('WWW', layout='monadtall', matches=[
+    Group('', layout='monadtall', matches=[
         Match(wm_class='firefox')
     ]),
-    Group('TERM', layout='monadtall', matches=[
+    Group('', layout='monadtall', matches=[
         Match(wm_class='Alacritty')
     ]),
-    Group('DEV', layout='monadtall', matches=[
-        Match(wm_class='code')
+    Group('', layout='monadtall', matches=[
+        Match(wm_class='code'),
+        Match(wm_class='emacs')
     ]),
-    Group('MUSIC', layout='monadtall', matches=[
-        Match(title='Spotify')
-    ])
+    Group('', layout='monadtall', matches=[
+        Match(title='spotify')
+    ]),
+    Group('', layout='monadtall', matches=[
+        Match(title='teams')
+    ]),
+    Group('', layout='monadtall', matches=[
+        Match(title='outlook')
+    ]),
 ]
 
 from libqtile.dgroups import simple_key_binder
 dgroups_key_binder = simple_key_binder(mod)
 
+color_fg         = '#bbc2cf'
+color_bg         = '#111111'
+color_bg_alt     = '#191919'
+color_red        = '#ff6c6b'
+color_orange     = '#da8548'
+color_green      = '#98be65'
+color_teal       = '#4db5bd'
+color_yellow     = '#ecbe7b'
+color_blue       = '#51afef'
+color_dark_blue  = '#2257a0'
+color_magenta    = '#c678dd'
+color_violet     = '#a9a1e1'
+color_cyan       = '#46d9ff'
+color_dark_cyan  = '#5699af'
+color_white      = '#efefef'
+
+# "battery-missing",
+# "battery-caution",
+# "battery-low",
+# "battery-good",
+# "battery-full",
+# "battery-caution-charging",
+# "battery-low-charging",
+# "battery-good-charging",
+# "battery-full-charging",
+# "battery-full-charged",
+
 layouts = [
-    # layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=4),
     layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
     layout.MonadTall(
-        border_focus='#51afef',
+        border_focus=color_blue,
         border_normal='#555555',
         margin=margin
     ),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
 ]
 
 widget_defaults = dict(
-    font='sans',
-    fontsize=12,
+    font='Hack Nerd Font',
+    fontsize=16,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
+
+sep = widget.Sep(
+    foreground=color_fg,
+    padding=24,
+    size_percent=50
+)
 
 screens = [
     Screen(
@@ -95,22 +176,69 @@ screens = [
             [
                 widget.Spacer(margin),
                 widget.GroupBox(
-                    
+                    active=color_magenta,
+                    block_highlight_text_color=color_blue,
+                    borderwidth=0,
+                    fontsize=18,
+                    spacing=20
                 ),
-                widget.Sep(),
+                sep,
                 widget.Prompt(),
                 widget.WindowTabs(),
+                widget.TextBox('',
+                    foreground=color_orange,
+                ),
+                widget.Mpris2(
+                    display_metadata=['xesam:artist', 'xesam:title'],
+                    foreground=color_orange,
+                    name='spotify',
+                    objname='org.mpris.MediaPlayer2.spotify',
+                    scroll_wait_intervals=-1,
+                    mouse_callbacks={
+                        'Button1': playpause
+                    },
+                    stop_pause_text='Not playing'
+                ),
+                sep,
+                widget.Wlan(
+                    disconnected_message='睊',
+                    foreground=color_green,
+                    interface='wlp3s0'
+                ),
+                widget.Net(
+                    foreground=color_green,
+                    format='{down}  {up} '
+                ),
+                sep,
+                widget.Battery(
+                    foreground=color_blue,
+                    format='{char} {percent:2.0%}',
+                    low_foreground=color_red,
+                    notify_below=0.1,
+                    charge_char='',
+                    discharge_char='',
+                    empty_char='',
+                    full_char='',
+                    unknown_char=''
+                ),
+                sep,
+                widget.TextBox('墳',
+                    foreground=color_magenta
+                ),
+                widget.PulseVolume(
+                    foreground=color_magenta
+                ),
+                sep,
                 widget.Systray(),
-                widget.PulseVolume(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M'),
+                widget.Clock(format='%a %d %b %H:%M'),
                 widget.Spacer(margin)
             ],
             40,
-            background='#191919',
+            background=color_bg_alt,
             border_color='#222222',
             border_width=[0, 0, 2, 0]
-        ),
-    ),
+        )
+    )
 ]
 
 # Drag floating layouts.
@@ -125,7 +253,7 @@ mouse = [
 dgroups_app_rules = []  # type: List
 follow_mouse_focus = True
 bring_front_click = False
-cursor_warp = False
+cursor_warp = True
 floating_layout = layout.Floating(float_rules=[
     # Run the utility of `xprop` to see the wm class and name of an X client.
     *layout.Floating.default_float_rules,
@@ -143,21 +271,8 @@ reconfigure_screens = True
 auto_minimize = True
 wmname = 'LG3D'
 
-def run_once(cmdline):
-    cmd = shlex.split(cmdline)
-    try:
-        subprocess.check_call(['pgrep', cmd[0]])
-    except:
-        run(cmdline)
-
-def run(cmdline):
-    subprocess.Popen(shlex.split(cmdline))
-
 @hook.subscribe.startup
 def startup():
-    run('xrandr' \
-            ' --output DP-2 --mode 1920x1080 --rate 120.01' \
-            ' --output DP-3 --primary --mode 2560x1440 --rate 143.96 --right-of DP-2' \
-            ' --output HDMI-0 --mode 1920x1080 --rate 60 --right-of DP-3')
     run_once('nitrogen --restore &')
+    run_once('picom &')
     run_once('pulse &')
