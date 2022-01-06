@@ -226,7 +226,10 @@ screens = [
                     foreground=color_magenta
                 ),
                 widget.PulseVolume(
-                    foreground=color_magenta
+                    foreground=color_magenta,
+                    mouse_callbacks={
+                        'Button3': lazy.spawn('pavucontrol')
+                    }
                 ),
                 sep,
                 widget.Systray(),
