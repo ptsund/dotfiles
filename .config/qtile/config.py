@@ -210,6 +210,13 @@ screens = [
                     format='{down}  {up} '
                 ),
                 sep,
+                widget.CheckUpdates(
+                    colour_have_updates='#ff6c6b',
+                    colour_no_updates='#2257a0',
+                    display_format=' {updates}',
+                    no_update_string=' 0'
+                ),
+                sep,
                 widget.Battery(
                     foreground=color_blue,
                     format='{char} {percent:2.0%}',
@@ -276,6 +283,6 @@ wmname = 'LG3D'
 
 @hook.subscribe.startup
 def startup():
-    run_once('nitrogen --restore &')
-    run_once('picom &')
-    run_once('pulse &')
+    run_once('nitrogen --restore')
+    run_once('picom')
+    run_once('pulse')
