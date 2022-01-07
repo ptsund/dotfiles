@@ -32,5 +32,6 @@
     },
     "window.menuBarVisibility": "hidden",
     "window.customMenuBarAltFocus": false,
-    "window.enableMenuBarMnemonics": false
+    "window.enableMenuBarMnemonics": false,
+    "editor.tabSize": 2
 }
