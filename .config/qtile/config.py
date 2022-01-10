@@ -141,10 +141,11 @@ groups = [
         Match(title='spotify')
     ]),
     Group('', layout='monadtall', matches=[
-        Match(title='teams')
+        Match(wm_class='microsoft teams - preview')
     ]),
     Group('', layout='monadtall', matches=[
-        Match(title='outlook')
+        Match(wm_class='Mail'),
+        Match(wm_class='Thunderbird')
     ]),
 ]
 
