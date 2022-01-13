@@ -30,8 +30,13 @@
             "terminal.background": "#111111",
         },
     },
-    "window.menuBarVisibility": "hidden",
     "window.customMenuBarAltFocus": false,
     "window.enableMenuBarMnemonics": false,
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "window.menuBarVisibility": "hidden",
+    "explorer.compactFolders": false,
+    "files.insertFinalNewline": true,
+    "editor.rename.enablePreview": false,
+    "workbench.editor.enablePreview": false,
+    "explorer.confirmDelete": false
 }
