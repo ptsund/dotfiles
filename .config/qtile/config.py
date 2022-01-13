@@ -1,12 +1,18 @@
 from os import EX_TEMPFAIL
 from typing import List  # noqa: F401
 
-from libqtile import bar, hook, layout, widget
+from libqtile import bar, extension, hook, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 
 import subprocess
 import shlex
+
+mod = 'mod4'
+margin=14
+bar_height=40
+font='Hack Nerd Font'
+font_size=16
 
 def run_once(cmdline):
     cmd = shlex.split(cmdline)
@@ -50,8 +56,21 @@ def mute_sink(qtile):
 def mute_source(qtile):
     run('pactl set-source-mute @DEFAULT_SOURCE@ toggle')
 
-mod = 'mod4'
-margin=14
+color_fg         = '#bbc2cf'
+color_bg         = '#111111'
+color_bg_alt     = '#191919'
+color_red        = '#ff6c6b'
+color_orange     = '#da8548'
+color_green      = '#98be65'
+color_teal       = '#4db5bd'
+color_yellow     = '#ecbe7b'
+color_blue       = '#51afef'
+color_dark_blue  = '#2257a0'
+color_magenta    = '#c678dd'
+color_violet     = '#a9a1e1'
+color_cyan       = '#46d9ff'
+color_dark_cyan  = '#5699af'
+color_white      = '#efefef'
 
 # https://github.com/qtile/qtile/blob/master/libqtile/backend/x11/xkeysyms.py
 keys = [
@@ -81,7 +100,18 @@ keys = [
     Key([mod], 'period', lazy.to_screen(0), desc='Move focus to second screen'),
     Key([mod], 'minus', lazy.to_screen(2), desc='Move focus to third screen'),
 
-    Key([mod], 'space', lazy.spawncmd(), desc='Spawn a command using a prompt widget'),
+    # Key([mod], 'space', lazy.spawncmd(), desc='Spawn a command using a prompt widget'),
+    Key([mod], 'space', lazy.run_extension(extension.DmenuRun(
+        dmenu_prompt='>',
+        font=font,
+        fontsize=font_size,
+        background=color_bg_alt,
+        foreground=color_fg,
+        dmenu_height=bar_height,
+        selected_background=color_bg_alt,
+        selected_foreground=color_blue
+    )), desc='Spawn a command using a prompt widget'),
+
     Key([mod], 'Return', lazy.spawn('alacritty'), desc='Launch terminal'),
     Key([mod], 'b', lazy.spawn('firefox'), desc='Launch browser'),
     Key([mod], 'e', lazy.spawn('code'), desc='Launch editor'),
@@ -122,22 +152,6 @@ groups = [
 from libqtile.dgroups import simple_key_binder
 dgroups_key_binder = simple_key_binder(mod)
 
-color_fg         = '#bbc2cf'
-color_bg         = '#111111'
-color_bg_alt     = '#191919'
-color_red        = '#ff6c6b'
-color_orange     = '#da8548'
-color_green      = '#98be65'
-color_teal       = '#4db5bd'
-color_yellow     = '#ecbe7b'
-color_blue       = '#51afef'
-color_dark_blue  = '#2257a0'
-color_magenta    = '#c678dd'
-color_violet     = '#a9a1e1'
-color_cyan       = '#46d9ff'
-color_dark_cyan  = '#5699af'
-color_white      = '#efefef'
-
 # "battery-missing",
 # "battery-caution",
 # "battery-low",
@@ -159,8 +173,8 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='Hack Nerd Font',
-    fontsize=16,
+    font=font,
+    fontsize=font_size,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
@@ -244,10 +258,8 @@ screens = [
                 widget.Clock(format='%a %d %b %H:%M'),
                 widget.Spacer(margin)
             ],
-            40,
-            background=color_bg_alt,
-            border_color='#222222',
-            border_width=[0, 0, 2, 0]
+            bar_height,
+            background=color_bg_alt
         )
     )
 ]
