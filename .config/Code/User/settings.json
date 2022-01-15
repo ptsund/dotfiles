@@ -11,7 +11,7 @@
             "activityBar.background": "#222222",
             "activityBar.border": "#333333",
             "activityBar.foreground": "#51afef",
-            "activityBar.inactiveForeground": "#333333",
+            "activityBar.inactiveForeground": "#444444",
             "activityBarBadge.background": "#3e4556",
             "badge.background": "#21242a",
             "editor.background": "#111111",
