@@ -147,6 +147,9 @@ groups = [
         Match(wm_class='Mail'),
         Match(wm_class='Thunderbird')
     ]),
+    Group('', layout='max', matches=[
+        Match(wm_class='virt-manager')
+    ])
 ]
 
 from libqtile.dgroups import simple_key_binder
