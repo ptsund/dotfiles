@@ -116,6 +116,8 @@ keys = [
     Key([mod], 'b', lazy.spawn('firefox'), desc='Launch browser'),
     Key([mod], 'e', lazy.spawn('code'), desc='Launch editor'),
     Key([mod], 'm', lazy.spawn('spotify'), desc='Launch music app'),
+    Key([mod], 'c', lazy.spawn('teams'), desc='Launch chat app'),
+    Key([mod], 'a', lazy.spawn('thunderbird'), desc='Launch email app'),
 
     Key([mod, 'mod1'], 'space', playpause, desc='Play/pause music'),
     Key([mod, 'mod1'], 'p', prev_track, desc='Previous soundtrack'),
