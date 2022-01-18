@@ -146,7 +146,7 @@ groups = [
     Group('', layout='monadtall', matches=[
         Match(wm_class='microsoft teams - preview')
     ]),
-    Group('', layout='monadtall', matches=[
+    Group('', layout='max', matches=[
         Match(wm_class='Mail'),
         Match(wm_class='Thunderbird')
     ]),
