@@ -7,6 +7,8 @@
 nitrogen
 picom
 pavucontrol
+dmenu-manjaro
+i3lock
 
 **PyPi**
 
