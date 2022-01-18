@@ -90,6 +90,7 @@ keys = [
     Key([mod, 'control'], 'k', lazy.layout.grow_up(), desc='Grow window up'),
     Key([mod, 'control'], 'n', lazy.layout.normalize(), desc='Reset all window sizes'),
     Key([mod, 'shift'], 'q', lazy.window.kill(), desc='Kill focused window'),
+    Key([mod, 'control'], 'c', lazy.spawn('i3lock -c 111111'), desc='Lock user session'),
 
     Key([mod, 'shift'], 'Return', lazy.layout.toggle_split(), desc='Toggle between split and unsplit sides of stack'),
     Key([mod], 'Tab', lazy.next_layout(), desc='Toggle between layouts'),
