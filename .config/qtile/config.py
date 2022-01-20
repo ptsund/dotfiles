@@ -119,6 +119,7 @@ keys = [
     Key([mod], 'm', lazy.spawn('spotify'), desc='Launch music app'),
     Key([mod], 'c', lazy.spawn('teams'), desc='Launch chat app'),
     Key([mod], 'a', lazy.spawn('thunderbird'), desc='Launch email app'),
+    Key([mod], 'v', lazy.spawn('virt-manager'), desc='Launch virtual machine'),
 
     Key([mod, 'mod1'], 'space', playpause, desc='Play/pause music'),
     Key([mod, 'mod1'], 'p', prev_track, desc='Previous soundtrack'),
@@ -306,3 +307,4 @@ def startup():
     run_once('nitrogen --restore')
     run_once('picom')
     run_once('pulse')
+    run_once('xss-lock i3lock -c 111111')
