@@ -8,7 +8,10 @@ nitrogen
 picom
 pavucontrol
 dmenu-manjaro
-i3lock
+(i3lock)
+(xss-lock)
+dunst
+(dunstify)
 
 **PyPi**
 
