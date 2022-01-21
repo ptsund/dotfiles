@@ -1,6 +1,8 @@
 call plug#begin()
 Plug 'preservim/NERDTree'
 Plug 'romgrk/doom-one.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 call plug#end()
 
 execute "set t_8f=\e[38;2;%lu;%lu;%lum"
