@@ -11,7 +11,7 @@ import shlex
 mod = 'mod4'
 margin=14
 bar_height=40
-font='Hack Nerd Font'
+font='Ubuntu Nerd Font Bold'
 font_size=16
 
 def run_once(cmdline):
@@ -201,6 +201,7 @@ screens = [
                     active=color_magenta,
                     block_highlight_text_color=color_blue,
                     borderwidth=0,
+                    font='Ubuntu Nerd Font',
                     fontsize=18,
                     spacing=20
                 ),
