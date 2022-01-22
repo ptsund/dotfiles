@@ -21,6 +21,7 @@ dbus-next
 
 **Fonts**
 
+Ubuntu Nerd Font
 [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts/#font-installation)
 
 # vim
