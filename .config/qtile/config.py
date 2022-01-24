@@ -153,7 +153,8 @@ groups = [
     ]),
     Group('', layout='max', matches=[
         Match(wm_class='virt-manager')
-    ])
+    ]),
+    Group('', layout='max', matches=[])
 ]
 
 from libqtile.dgroups import simple_key_binder
