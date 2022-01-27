@@ -178,6 +178,11 @@ layouts = [
         border_normal='#555555',
         margin=margin
     ),
+    layout.VerticalTile(
+        border_focus=color_blue,
+        border_normal='#555555',
+        margin=margin
+    )
 ]
 
 widget_defaults = dict(
@@ -208,7 +213,10 @@ screens = [
                 ),
                 sep,
                 widget.Prompt(),
-                widget.WindowTabs(),
+                widget.WindowName(
+                    for_current_screen=True,
+                    foreground=color_orange
+                ),
                 widget.TextBox('',
                     foreground=color_orange,
                 ),
@@ -309,4 +317,4 @@ def startup():
     run_once('nitrogen --restore')
     run_once('picom')
     run_once('pulse')
-    run_once('xss-lock i3lock -c 111111')
+    run_once('xss-lock -- i3lock -c 111111')
