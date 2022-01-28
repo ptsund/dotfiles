@@ -154,7 +154,8 @@ groups = [
     Group('', layout='max', matches=[
         Match(wm_class='virt-manager')
     ]),
-    Group('', layout='max', matches=[])
+    Group('', layout='max', matches=[]),
+    Group('', layout='monaxtall')
 ]
 
 from libqtile.dgroups import simple_key_binder
@@ -235,7 +236,8 @@ screens = [
                 widget.Wlan(
                     disconnected_message='睊',
                     foreground=color_green,
-                    interface='wlp3s0'
+                    format='直 {essid}',
+                    interface='wlp9s0'
                 ),
                 widget.Net(
                     foreground=color_green,
@@ -318,3 +320,4 @@ def startup():
     run_once('picom')
     run_once('pulse')
     run_once('xss-lock -- i3lock -c 111111')
+    run_once('nm-applet')
