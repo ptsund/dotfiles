@@ -74,11 +74,6 @@ if ${use_color} ; then
 	else
 		PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] '
 	fi
-
-	alias ls='ls --color=auto'
-	alias grep='grep --colour=auto'
-	alias egrep='egrep --colour=auto'
-	alias fgrep='fgrep --colour=auto'
 else
 	if [[ ${EUID} == 0 ]] ; then
 		# show root@ when we don't have colors
@@ -90,12 +85,66 @@ fi
 
 unset use_color safe_term match_lhs sh
 
-alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
-alias np='nano -w PKGBUILD'
+alias config="/usr/bin/git --git-dir=/home/psm/.dotfiles/ --work-tree=/home/psm/"
+
+alias ls="ls -lah --color=auto"
+alias grep="grep --colour=auto"
+alias egrep="egrep --colour=auto"
+alias fgrep="fgrep --colour=auto"
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
+alias df="df -h"
+alias pacup="sudo pacman -Syu"
+alias pacupd="sudo pacman -Sy"
+alias pacupg="sudo pacman -Su"
+alias pacsr="sudo pacman -Ss --color=auto"
+alias pacin="sudo pacman -S"
+alias pacrm="sudo pacman -R"
+alias free="free -m"
+alias np="nano -w PKGBUILD"
 alias more=less
 alias ssh="TERM=xterm-256color ssh"
+
+alias gfe='git fetch -p'
+alias gcm='git commit'
+alias gcmm='git commit -m'
+alias gcma='git commit -a'
+alias gcmam='git commit -am'
+alias gcmad='git commit --amend'
+alias gcmadch='git commit --amend -C HEAD'
+alias ga='git add'
+alias gaa='git add .'
+alias gap='git add -p .'
+alias gau='git add -u'
+alias gp='git push'
+alias gpu='git push -u origin HEAD'
+alias gpf='git push -f'
+alias gb='git branch'
+alias gbv='git branch -v'
+alias gbvv='git branch -vv'
+alias gbr='git branch -r'
+alias gba='git branch -a'
+alias gbd='git branch -d'
+alias gbD='git branch -D'
+alias gbm='git blame'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gd='git diff'
+alias gdw='git diff -w'
+alias gdc='git diff --cached'
+alias gre='git reset'
+alias greh='git reset --hard'
+alias grb='git rebase'
+alias grbi='git rebase -i'
+alias gst='git status'
+alias gl='git log'
+alias glgo='git log --graph --oneline'
+alias gref='git reflog'
+alias gm='git merge'
+alias gs='git show'
+alias gss='git show --stat'
+alias gsmur='git submodule update --remote'
 
 xhost +local:root > /dev/null 2>&1
 
@@ -137,4 +186,4 @@ ex ()
   fi
 }
 
-alias config='/usr/bin/git --git-dir=/home/psm/.dotfiles/ --work-tree=/home/psm/'
+export LS_COLORS="ow=01;36;40"
