@@ -175,12 +175,12 @@ dgroups_key_binder = simple_key_binder(mod)
 layouts = [
     layout.Max(),
     layout.MonadTall(
-        border_focus=color_blue,
+        border_focus=color_cyan,
         border_normal='#555555',
         margin=margin
     ),
     layout.VerticalTile(
-        border_focus=color_blue,
+        border_focus=color_cyan,
         border_normal='#555555',
         margin=margin
     )
@@ -253,7 +253,7 @@ screens = [
                 ),
                 sep,
                 widget.Battery(
-                    foreground=color_blue,
+                    foreground=color_cyan,
                     format='{char} {percent:2.0%}',
                     low_foreground=color_red,
                     notify_below=0.1,
