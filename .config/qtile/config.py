@@ -147,7 +147,7 @@ groups = [
     Group('', layout='monadtall', matches=[
         Match(wm_class='microsoft teams - preview')
     ]),
-    Group('', layout='max', matches=[
+    Group('', layout='max', matches=[
         Match(wm_class='Mail'),
         Match(wm_class='Thunderbird')
     ]),
@@ -155,7 +155,7 @@ groups = [
         Match(wm_class='virt-manager')
     ]),
     Group('', layout='max', matches=[]),
-    Group('', layout='monaxtall')
+    Group('', layout='monadtall')
 ]
 
 from libqtile.dgroups import simple_key_binder
@@ -239,10 +239,10 @@ screens = [
                     format='直 {essid}',
                     interface='wlp9s0'
                 ),
-                widget.Net(
-                    foreground=color_green,
-                    format='{down}  {up} '
-                ),
+                # sep,
+                # widget.Bluetooth(
+                #     hci='/dev_04_5D_4B_29_8F_A7'
+                # ),
                 sep,
                 widget.CheckUpdates(
                     colour_have_updates='#ff6c6b',
