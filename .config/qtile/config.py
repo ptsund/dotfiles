@@ -75,31 +75,22 @@ color_white      = '#efefef'
 # https://github.com/qtile/qtile/blob/master/libqtile/backend/x11/xkeysyms.py
 keys = [
     Key([mod], 'h', lazy.layout.left(), desc='Move focus to left'),
-    Key([mod], 'l', lazy.layout.right(), desc='Move focus to right'),
     Key([mod], 'j', lazy.layout.down(), desc='Move focus down'),
     Key([mod], 'k', lazy.layout.up(), desc='Move focus up'),
+    Key([mod], 'l', lazy.layout.right(), desc='Move focus to right'),
 
-    Key([mod, 'shift'], 'h', lazy.layout.shuffle_left(), desc='Move window to the left'),
-    Key([mod, 'shift'], 'l', lazy.layout.shuffle_right(), desc='Move window to the right'),
-    Key([mod, 'shift'], 'j', lazy.layout.shuffle_down(), desc='Move window down'),
-    Key([mod, 'shift'], 'k', lazy.layout.shuffle_up(), desc='Move window up'),
+    Key([mod], 'a', lazy.spawn('thunderbird'), desc='Launch email app'),
+    Key([mod], 'b', lazy.spawn('firefox'), desc='Launch browser'),
+    Key([mod], 'c', lazy.spawn('teams'), desc='Launch chat app'),
+    Key([mod], 'e', lazy.spawn('code'), desc='Launch editor'),
+    Key([mod], 'm', lazy.spawn('spotify'), desc='Launch music app'),
+    Key([mod], 'v', lazy.spawn('virt-manager'), desc='Launch virtual machine'),
 
-    Key([mod, 'control'], 'h', lazy.layout.grow_left(), desc='Grow window to the left'),
-    Key([mod, 'control'], 'l', lazy.layout.grow_right(), desc='Grow window to the right'),
-    Key([mod, 'control'], 'j', lazy.layout.grow_down(), desc='Grow window down'),
-    Key([mod, 'control'], 'k', lazy.layout.grow_up(), desc='Grow window up'),
-    Key([mod, 'control'], 'n', lazy.layout.normalize(), desc='Reset all window sizes'),
-    Key([mod, 'shift'], 'q', lazy.window.kill(), desc='Kill focused window'),
-    Key([mod, 'control'], 'c', lazy.spawn('i3lock -c 111111'), desc='Lock user session'),
-
-    Key([mod, 'shift'], 'Return', lazy.layout.toggle_split(), desc='Toggle between split and unsplit sides of stack'),
     Key([mod], 'Tab', lazy.next_layout(), desc='Toggle between layouts'),
-    Key([mod, 'control'], 'q', lazy.shutdown(), desc='Shutdown Qtile'),
-    Key([mod, 'control'], 'r', lazy.restart(), desc='Restart Qtile'),
-    Key([mod, 'control'], 's', suspend, desc='Suspend the computer'),
     Key([mod], 'comma', lazy.to_screen(1), desc='Move focus to first screen'),
     Key([mod], 'period', lazy.to_screen(0), desc='Move focus to second screen'),
     Key([mod], 'minus', lazy.to_screen(2), desc='Move focus to third screen'),
+    Key([mod], 'Return', lazy.spawn('alacritty'), desc='Launch terminal'),
 
     # Key([mod], 'space', lazy.spawncmd(), desc='Spawn a command using a prompt widget'),
     Key([mod], 'space', lazy.run_extension(extension.DmenuRun(
@@ -113,21 +104,32 @@ keys = [
         selected_foreground=color_blue
     )), desc='Spawn a command using a prompt widget'),
 
-    Key([mod], 'Return', lazy.spawn('alacritty'), desc='Launch terminal'),
-    Key([mod], 'b', lazy.spawn('firefox'), desc='Launch browser'),
-    Key([mod], 'e', lazy.spawn('code'), desc='Launch editor'),
-    Key([mod], 'm', lazy.spawn('spotify'), desc='Launch music app'),
-    Key([mod], 'c', lazy.spawn('teams'), desc='Launch chat app'),
-    Key([mod], 'a', lazy.spawn('thunderbird'), desc='Launch email app'),
-    Key([mod], 'v', lazy.spawn('virt-manager'), desc='Launch virtual machine'),
+    Key([mod, 'shift'], 'h', lazy.layout.shuffle_left(), desc='Move window to the left'),
+    Key([mod, 'shift'], 'j', lazy.layout.shuffle_down(), desc='Move window down'),
+    Key([mod, 'shift'], 'k', lazy.layout.shuffle_up(), desc='Move window up'),
+    Key([mod, 'shift'], 'l', lazy.layout.shuffle_right(), desc='Move window to the right'),
+    Key([mod, 'shift'], 'q', lazy.window.kill(), desc='Kill focused window'),
+    Key([mod, 'shift'], 'Return', lazy.layout.toggle_split(), desc='Toggle between split and unsplit sides of stack'),
+    Key([mod, 'shift'], 'space', lazy.spawn('./scripts/dmwebsearch.sh'), desc='Show websearch prompt'),
 
-    Key([mod, 'mod1'], 'space', playpause, desc='Play/pause music'),
-    Key([mod, 'mod1'], 'p', prev_track, desc='Previous soundtrack'),
+    Key([mod, 'control'], 'c', lazy.spawn('alacritty -e bash -c "sleep 0.2; vim ~/.config/qtile/config.py"'), desc='Edit qtile config'),
+    Key([mod, 'control'], 'h', lazy.layout.grow_left(), desc='Grow window to the left'),
+    Key([mod, 'control'], 'j', lazy.layout.grow_down(), desc='Grow window down'),
+    Key([mod, 'control'], 'k', lazy.layout.grow_up(), desc='Grow window up'),
+    Key([mod, 'control'], 'l', lazy.layout.grow_right(), desc='Grow window to the right'),
+    Key([mod, 'control'], 'n', lazy.layout.normalize(), desc='Reset all window sizes'),
+    Key([mod, 'control'], 'q', lazy.shutdown(), desc='Shutdown Qtile'),
+    Key([mod, 'control'], 'r', lazy.restart(), desc='Restart Qtile'),
+    Key([mod, 'control'], 's', suspend, desc='Suspend the computer'),
+    Key([mod, 'control'], 'space', lazy.spawn('i3lock -c 111111'), desc='Lock user session'),
+
+    Key([mod, 'mod1'], 'i', mute_source, desc='Mute microphone'),
+    Key([mod, 'mod1'], 'm', mute_sink, desc='Mute sound'),
     Key([mod, 'mod1'], 'n', next_track, desc='Next soundtrack'),
+    Key([mod, 'mod1'], 'p', prev_track, desc='Previous soundtrack'),
+    Key([mod, 'mod1'], 'space', playpause, desc='Play/pause music'),
     Key([mod, 'mod1'], 'KP_Subtract', lower_volume, desc='Lower volume'),
     Key([mod, 'mod1'], 'KP_Add', raise_volume, desc='Raise volume'),
-    Key([mod, 'mod1'], 'm', mute_sink, desc='Mute sound'),
-    Key([mod, 'mod1'], 'i', mute_source, desc='Mute microphone'),
 ] 
 
 groups = [
@@ -238,6 +240,12 @@ screens = [
                     foreground=color_green,
                     format='直 {essid}',
                     interface='wlp9s0'
+                ),
+                widget.Wlan(
+                    disconnected_message='睊',
+                    foreground=color_green,
+                    format='直 {essid}',
+                    interface='wlp3s0'
                 ),
                 # sep,
                 # widget.Bluetooth(
