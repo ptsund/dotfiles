@@ -235,18 +235,12 @@ screens = [
                     stop_pause_text='Not playing'
                 ),
                 sep,
-                widget.Wlan(
+                *[widget.Wlan(
                     disconnected_message='睊',
                     foreground=color_green,
                     format='直 {essid}',
-                    interface='wlp9s0'
-                ),
-                widget.Wlan(
-                    disconnected_message='睊',
-                    foreground=color_green,
-                    format='直 {essid}',
-                    interface='wlp3s0'
-                ),
+                    interface=i
+                ) for i in ['wlp3s0', 'wlp9s0']],
                 # sep,
                 # widget.Bluetooth(
                 #     hci='/dev_04_5D_4B_29_8F_A7'
