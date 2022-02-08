@@ -177,12 +177,12 @@ dgroups_key_binder = simple_key_binder(mod)
 layouts = [
     layout.Max(),
     layout.MonadTall(
-        border_focus=color_cyan,
+        border_focus=color_orange,
         border_normal='#555555',
         margin=margin
     ),
     layout.VerticalTile(
-        border_focus=color_cyan,
+        border_focus=color_orange,
         border_normal='#555555',
         margin=margin
     )
@@ -199,7 +199,7 @@ sep = widget.Sep(
     foreground=color_fg,
     padding=24,
     size_percent=50
-)
+),
 
 screens = [
     Screen(
@@ -214,7 +214,11 @@ screens = [
                     fontsize=18,
                     spacing=20
                 ),
-                sep,
+                widget.Sep(
+                    foreground=color_fg,
+                    padding=24,
+                    size_percent=50
+                ),
                 widget.Prompt(),
                 widget.WindowName(
                     for_current_screen=True,
@@ -234,18 +238,30 @@ screens = [
                     },
                     stop_pause_text='Not playing'
                 ),
-                sep,
+                widget.Sep(
+                    foreground=color_fg,
+                    padding=24,
+                    size_percent=50
+                ),
                 *[widget.Wlan(
                     disconnected_message='睊',
                     foreground=color_green,
                     format='直 {essid}',
                     interface=i
                 ) for i in ['wlp3s0', 'wlp9s0']],
-                # sep,
+                # widget.Sep(
+                    # foreground=color_fg,
+                    # padding=24,
+                    # size_percent=50
+                # ),
                 # widget.Bluetooth(
                 #     hci='/dev_04_5D_4B_29_8F_A7'
                 # ),
-                sep,
+                widget.Sep(
+                    foreground=color_fg,
+                    padding=24,
+                    size_percent=50
+                ),
                 widget.CheckUpdates(
                     colour_have_updates='#ff6c6b',
                     colour_no_updates='#2257a0',
@@ -253,7 +269,11 @@ screens = [
                     display_format=' {updates}',
                     no_update_string=' 0'
                 ),
-                sep,
+                widget.Sep(
+                    foreground=color_fg,
+                    padding=24,
+                    size_percent=50
+                ),
                 widget.Battery(
                     foreground=color_cyan,
                     format='{char} {percent:2.0%}',
@@ -265,7 +285,11 @@ screens = [
                     full_char='',
                     unknown_char=''
                 ),
-                sep,
+                widget.Sep(
+                    foreground=color_fg,
+                    padding=24,
+                    size_percent=50
+                ),
                 widget.TextBox('墳',
                     foreground=color_magenta
                 ),
@@ -275,7 +299,11 @@ screens = [
                         'Button3': lazy.spawn('pavucontrol')
                     }
                 ),
-                sep,
+                widget.Sep(
+                    foreground=color_fg,
+                    padding=24,
+                    size_percent=50
+                ),
                 widget.Systray(),
                 widget.Clock(format='%a %d %b %H:%M'),
                 widget.Spacer(margin)
