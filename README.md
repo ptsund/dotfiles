@@ -12,6 +12,7 @@ dmenu-manjaro
 (xss-lock)
 dunst
 (dunstify)
+[Windows Spice Guest Tools](https://www.spice-space.org/download.html)
 
 **PyPi**
 
