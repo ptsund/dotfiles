@@ -37,5 +37,7 @@
     "explorer.compactFolders": false,
     "files.insertFinalNewline": true,
     "workbench.editor.enablePreview": false,
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "editor.renderWhitespace": "all",
+    "redhat.telemetry.enabled": false
 }
