@@ -304,7 +304,6 @@ screens = [
                     padding=24,
                     size_percent=50
                 ),
-                widget.Systray(),
                 widget.Clock(format='%a %d %b %H:%M'),
                 widget.Spacer(margin)
             ],
