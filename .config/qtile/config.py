@@ -210,6 +210,7 @@ screens = [
                     active=color_magenta,
                     block_highlight_text_color=color_blue,
                     borderwidth=0,
+                    disable_drag=True,
                     font='Ubuntu Nerd Font',
                     fontsize=18,
                     spacing=20
