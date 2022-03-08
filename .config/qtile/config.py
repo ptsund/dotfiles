@@ -149,7 +149,7 @@ groups = [
     Group('', layout='monadtall', matches=[
         Match(wm_class='microsoft teams - preview')
     ]),
-    Group('', layout='monadwide', matches=[
+    Group('', layout='monadwide', matches=[
         Match(wm_class='Mail'),
         Match(wm_class='Thunderbird')
     ]),
