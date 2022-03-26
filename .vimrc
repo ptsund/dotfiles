@@ -3,6 +3,8 @@ Plug 'preservim/NERDTree'
 Plug 'romgrk/doom-one.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'vim-syntastic/syntastic'
+Plug 'ervandew/supertab'
 call plug#end()
 
 execute "set t_8f=\e[38;2;%lu;%lu;%lum"
@@ -40,3 +42,6 @@ set wildmode=list:longest
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
 nnoremap <F3> :set hlsearch!<CR>
+
+let g:syntastic_cpp_checkers = ['syntastic-checkers-cpp']
+
