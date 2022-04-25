@@ -83,6 +83,7 @@ keys = [
     Key([mod], 'b', lazy.spawn('firefox'), desc='Launch browser'),
     Key([mod], 'c', lazy.spawn('teams'), desc='Launch chat app'),
     Key([mod], 'e', lazy.spawn('code'), desc='Launch editor'),
+    Key([mod], 'f', lazy.spawn('alacritty -e bash -c "sleep 0.2; ranger"'), desc='Launch file explorer'),
     Key([mod], 'm', lazy.spawn('spotify'), desc='Launch music app'),
     Key([mod], 'v', lazy.spawn('virt-manager'), desc='Launch virtual machine'),
 
