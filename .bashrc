@@ -86,20 +86,22 @@ fi
 unset use_color safe_term match_lhs sh
 
 if [ -z "$(pgrep ssh-agent)" ]; then
-      rm -rf /tmp/ssh-*
-          eval $(ssh-agent -s) > /dev/null
-        else
-              export SSH_AGENT_PID=$(pgrep ssh-agent)
-                  export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name agent.*)
+  rm -rf /tmp/ssh-*
+  eval $(ssh-agent -s) > /dev/null
+else
+  export SSH_AGENT_PID=$(pgrep ssh-agent)
+  export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name agent.*)
 fi
 
 if [ "$(ssh-add -l)" == "The agent has no identities." ]; then
-      ssh-add
+  ssh-add
 fi
 
 alias config="/usr/bin/git --git-dir=/home/psm/.dotfiles/ --work-tree=/home/psm/"
 
-alias ls="ls -lAht --color=auto"
+alias ls="ls -lAh --color=auto"
+alias lst="ls -lAht --color=auto"
+alias lss="ls -lAhS --color=auto"
 alias grep="grep --colour=auto"
 alias egrep="egrep --colour=auto"
 alias fgrep="fgrep --colour=auto"
@@ -204,3 +206,8 @@ export LS_COLORS="ow=01;36;40"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+. "$HOME/.cargo/env"
+
+export PATH="$PATH:$HOME/.local/bin/jetbrains-2021.3.4/bin:$HOME/.emacs.d/bin:$HOME/.dotnet:$HOME/Applications"
+export DOTNET_ROOT="$HOME/.dotnet"
+
