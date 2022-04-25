@@ -13,6 +13,7 @@ dmenu-manjaro
 dunst
 (dunstify)
 [Windows Spice Guest Tools](https://www.spice-space.org/download.html)
+bluez-tools
 
 **PyPi**
 
