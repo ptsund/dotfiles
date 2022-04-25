@@ -139,9 +139,10 @@ groups = [
     Group('', layout='monadtall', matches=[
         Match(wm_class='Alacritty')
     ]),
-    Group('', layout='monadtall', matches=[
+    Group('', layout='monadwide', matches=[
         Match(wm_class='code'),
-        Match(wm_class='emacs')
+        Match(wm_class='emacs'),
+        Match(wm_class='jetbrains-ridejetbrains-rider')
     ]),
     Group('', layout='monadtall', matches=[
         Match(title='spotify')
@@ -177,6 +178,11 @@ dgroups_key_binder = simple_key_binder(mod)
 layouts = [
     layout.Max(),
     layout.MonadTall(
+        border_focus=color_orange,
+        border_normal='#555555',
+        margin=margin
+    ),
+    layout.MonadWide(
         border_focus=color_orange,
         border_normal='#555555',
         margin=margin
@@ -305,6 +311,7 @@ screens = [
                     padding=24,
                     size_percent=50
                 ),
+                widget.Systray(),
                 widget.Clock(format='%a %d %b %H:%M'),
                 widget.Spacer(margin)
             ],
@@ -351,3 +358,4 @@ def startup():
     run_once('pulse')
     run_once('xss-lock -- i3lock -c 111111')
     run_once('nm-applet')
+    run_once('bt-agent --capability=NoInputNoOutput')
