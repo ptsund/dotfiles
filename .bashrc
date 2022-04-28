@@ -210,4 +210,5 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="$PATH:$HOME/.local/bin/jetbrains-2021.3.4/bin:$HOME/.emacs.d/bin:$HOME/.dotnet:$HOME/Applications"
 export DOTNET_ROOT="$HOME/.dotnet"
+export HISTTIMEFORMAT='%F %T '
 
