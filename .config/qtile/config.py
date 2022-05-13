@@ -60,7 +60,7 @@ color_fg         = '#bbc2cf'
 color_bg         = '#111111'
 color_bg_alt     = '#191919'
 color_red        = '#ff6c6b'
-color_orange     = '#ff7d00'
+color_orange     = '#ff8418'
 color_green      = '#98be65'
 color_teal       = '#4db5bd'
 color_yellow     = '#ecbe7b'
@@ -68,6 +68,7 @@ color_blue       = '#51afef'
 color_dark_blue  = '#2257a0'
 color_magenta    = '#c678dd'
 color_violet     = '#a9a1e1'
+color_purple     = '#b93ae5'
 color_cyan       = '#46d9ff'
 color_dark_cyan  = '#5699af'
 color_white      = '#efefef'
@@ -214,8 +215,8 @@ screens = [
             [
                 widget.Spacer(margin),
                 widget.GroupBox(
-                    active=color_magenta,
-                    block_highlight_text_color=color_blue,
+                    active=color_purple,
+                    block_highlight_text_color=color_orange,
                     borderwidth=0,
                     disable_drag=True,
                     font='Ubuntu Nerd Font',
@@ -354,9 +355,9 @@ wmname = 'LG3D'
 
 @hook.subscribe.startup
 def startup():
+    run_once('dunst')
     run_once('nitrogen --restore')
     run_once('picom')
-    run_once('pulse')
     run_once('xss-lock -- i3lock -c 111111')
     run_once('nm-applet')
     run_once('bt-agent --capability=NoInputNoOutput')
