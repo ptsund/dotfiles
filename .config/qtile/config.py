@@ -159,7 +159,11 @@ groups = [
     Group('', layout='max', matches=[
         Match(wm_class='virt-manager')
     ]),
-    Group('', layout='max', matches=[]),
+    Group('', layout='max', matches=[
+        Match(wm_class='Steam'),
+        Match(wm_class='Lutris'),
+        Match(wm_class='battle.net.exe')
+    ]),
     Group('', layout='monadtall')
 ]
 
