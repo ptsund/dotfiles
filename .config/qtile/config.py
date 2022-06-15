@@ -188,11 +188,6 @@ layouts = [
         border_focus=color_orange,
         border_normal='#555555',
         margin=margin
-    ),
-    layout.VerticalTile(
-        border_focus=color_orange,
-        border_normal='#555555',
-        margin=margin
     )
 ]
 
@@ -230,6 +225,7 @@ screens = [
                 ),
                 widget.Prompt(),
                 widget.WindowName(
+                    font='Ubuntu Bold',
                     for_current_screen=True,
                     foreground=color_orange
                 ),
