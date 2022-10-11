@@ -244,7 +244,9 @@ screens = [
                     objname='org.mpris.MediaPlayer2.spotify',
                     scroll_wait_intervals=-1,
                     mouse_callbacks={
-                        'Button1': playpause
+                        'Button1': playpause,
+                        'Button2': prev_track,
+                        'Button3': next_track
                     },
                     stop_pause_text='Not playing'
                 ),
