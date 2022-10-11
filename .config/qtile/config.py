@@ -163,7 +163,7 @@ groups = [
         Match(wm_class='Steam'),
         Match(wm_class='Lutris'),
         Match(wm_class='battle.net.exe'),
-        Match(wm_class='WoW.exe')
+        Match(wm_class='wow.exe')
     ]),
     Group('', layout='monadtall')
 ]
