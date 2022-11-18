@@ -13,6 +13,7 @@
             "activityBar.foreground": "#51afef",
             "activityBar.inactiveForeground": "#444444",
             "activityBarBadge.background": "#51afef",
+            // "activityBarBadge.foreground": "#333333",
             "badge.background": "#333333",
             "editor.background": "#111111",
             "editorGroupHeader.tabsBackground": "#191919",
@@ -63,5 +64,21 @@
             "icon": "terminal-powershell"
         }
     },
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    "C_Cpp.clang_format_fallbackStyle": "Google",
+    "debug.onTaskErrors": "abort",
+    "mssql.connections": [
+        {
+            "server": "tds-test-sqlserver.database.windows.net",
+            "database": "Tds",
+            "authenticationType": "SqlLogin",
+            "user": "DeveloperCanBeDeleted",
+            "password": "",
+            "emptyPasswordInput": false,
+            "savePassword": true,
+            "profileName": "Tds test"
+        }
+    ],
+    "cmake.configureOnOpen": false,
+    "editor.formatOnSave": true
 }
