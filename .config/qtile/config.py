@@ -277,7 +277,7 @@ screens = [
                 widget.CheckUpdates(
                     colour_have_updates='#ff6c6b',
                     colour_no_updates='#2257a0',
-                    distro='Arch_Sup',
+                    distro='Arch_checkupdates',
                     display_format=' {updates}',
                     no_update_string=' 0'
                 ),
