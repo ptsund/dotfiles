@@ -213,3 +213,9 @@ export DOTNET_ROOT="$HOME/.dotnet"
 export HISTTIMEFORMAT='%F %T '
 export curseforge=CurseForge-0.198.1-29_703140e0b962037d84be40bac6be84e0.AppImage
 
+
+export PATH=$PATH:/home/psm/bin
+
+source '/home/psm/lib/azure-cli/az.completion'
+
+eval "$(starship init bash)"
