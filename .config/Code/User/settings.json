@@ -69,18 +69,46 @@
     "debug.onTaskErrors": "abort",
     "mssql.connections": [
         {
+            "server": "nobmaptestdata-sqlsrv.database.windows.net",
+            "database": "spacesdb",
+            "authenticationType": "SqlLogin",
+            "user": "gaiaadmin",
+            "password": "",
+            "emptyPasswordInput": false,
+            "savePassword": true,
+            "profileName": "atlas test"
+        },
+        {
             "server": "tds-test-sqlserver.database.windows.net",
-            "database": "Tds",
+            "database": "TDS",
             "authenticationType": "SqlLogin",
             "user": "DeveloperCanBeDeleted",
             "password": "",
             "emptyPasswordInput": false,
             "savePassword": true,
-            "profileName": "Tds test"
+            "profileName": "tds test"
+        },
+        {
+            "server": "tds-prod-sqlserver.database.windows.net",
+            "database": "TDS",
+            "authenticationType": "SqlLogin",
+            "user": "DeveloperCanBeDeleted",
+            "password": "",
+            "emptyPasswordInput": false,
+            "savePassword": true,
+            "profileName": "tds prod"
         }
     ],
     "cmake.configureOnOpen": false,
     "editor.formatOnSave": true,
+    "[sql]": {
+        "editor.defaultFormatter": "ms-mssql.mssql",
+        "editor.formatOnSave": false
+    },
+    "[rust]": {
+        "editor.indentSize": 2
+    },
     "typescript.preferences.quoteStyle": "single",
-    "javascript.preferences.quoteStyle": "single"
+    "javascript.preferences.quoteStyle": "single",
+    "editor.indentSize": "tabSize"
 }
