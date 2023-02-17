@@ -1,114 +1,126 @@
 {
-    "editor.fontFamily": "'Hack Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "editor.fontSize": 16,
-    "workbench.startupEditor": "none",
-    "workbench.sideBar.location": "right",
-    "workbench.editor.untitled.hint": "hidden",
-    "workbench.colorTheme": "doom-one",
-    "workbench.colorCustomizations": {
-        "[doom-one]": {
-            "activityBar.activeBorder": "#191919",
-            "activityBar.background": "#222222",
-            "activityBar.border": "#333333",
-            "activityBar.foreground": "#51afef",
-            "activityBar.inactiveForeground": "#444444",
-            "activityBarBadge.background": "#51afef",
-            // "activityBarBadge.foreground": "#333333",
-            "badge.background": "#333333",
-            "editor.background": "#111111",
-            "editorGroupHeader.tabsBackground": "#191919",
-            "editorIndentGuide.background": "#3f444a",
-            "panel.background": "#191919",
-            "sideBar.background": "#191919",
-            "sideBar.border": "#333333",
-            "sideBarSectionHeader.background": "#222222",
-            "statusBar.background": "#333333",
-            "statusBar.noFolderBackground": "#333333",
-            "tab.activeBorderTop": "#191919",
-            "tab.border": "#191919",
-            "tab.hoverBackground": "#222222",
-            "tab.inactiveBackground": "#191919",
-            "terminal.background": "#111111",
-            "debugToolBar.background": "#222222"
-        },
+  "editor.fontFamily": "'Hack Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.fontSize": 16,
+  "workbench.startupEditor": "none",
+  "workbench.sideBar.location": "right",
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.colorTheme": "doom-one",
+  "workbench.colorCustomizations": {
+    "[doom-one]": {
+      "activityBar.activeBorder": "#191919",
+      "activityBar.background": "#222222",
+      "activityBar.border": "#333333",
+      "activityBar.foreground": "#51afef",
+      "activityBar.inactiveForeground": "#444444",
+      "activityBarBadge.background": "#51afef",
+      // "activityBarBadge.foreground": "#333333",
+      "badge.background": "#333333",
+      "editor.background": "#111111",
+      "editorGroupHeader.tabsBackground": "#191919",
+      "editorIndentGuide.background": "#3f444a",
+      "panel.background": "#191919",
+      "sideBar.background": "#191919",
+      "sideBar.border": "#333333",
+      "sideBarSectionHeader.background": "#222222",
+      "statusBar.background": "#333333",
+      "statusBar.noFolderBackground": "#333333",
+      "tab.activeBorderTop": "#191919",
+      "tab.border": "#191919",
+      "tab.hoverBackground": "#222222",
+      "tab.inactiveBackground": "#111111",
+      "tab.activeBackground": "#333333",
+      "terminal.background": "#111111",
+      "debugToolBar.background": "#222222"
     },
-    "window.customMenuBarAltFocus": false,
-    "window.enableMenuBarMnemonics": false,
-    "editor.tabSize": 2,
-    "window.menuBarVisibility": "hidden",
-    "explorer.compactFolders": false,
-    "files.insertFinalNewline": true,
-    "workbench.editor.enablePreview": false,
-    "explorer.confirmDelete": false,
-    "editor.renderWhitespace": "all",
-    "redhat.telemetry.enabled": false,
-    "extensions.ignoreRecommendations": true,
-    "terminal.integrated.defaultProfile.linux": "bash",
-    "terminal.integrated.profiles.linux": {
-        "bash": {
-            "path": "bash",
-            "icon": "terminal-bash"
-        },
-        "zsh": {
-            "path": "zsh"
-        },
-        "fish": {
-            "path": "fish"
-        },
-        "tmux": {
-            "path": "tmux",
-            "icon": "terminal-tmux"
-        },
-        "pwsh": {
-            "path": "pwsh",
-            "icon": "terminal-powershell"
-        }
+  },
+  "window.customMenuBarAltFocus": false,
+  "window.enableMenuBarMnemonics": false,
+  "editor.tabSize": 2,
+  "window.menuBarVisibility": "hidden",
+  "explorer.compactFolders": false,
+  "files.insertFinalNewline": true,
+  "workbench.editor.enablePreview": false,
+  "explorer.confirmDelete": false,
+  "editor.renderWhitespace": "all",
+  "redhat.telemetry.enabled": false,
+  "extensions.ignoreRecommendations": true,
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "bash",
+      "icon": "terminal-bash"
     },
-    "explorer.confirmDragAndDrop": false,
-    "C_Cpp.clang_format_fallbackStyle": "Google",
-    "debug.onTaskErrors": "abort",
-    "mssql.connections": [
-        {
-            "server": "nobmaptestdata-sqlsrv.database.windows.net",
-            "database": "spacesdb",
-            "authenticationType": "SqlLogin",
-            "user": "gaiaadmin",
-            "password": "",
-            "emptyPasswordInput": false,
-            "savePassword": true,
-            "profileName": "atlas test"
-        },
-        {
-            "server": "tds-test-sqlserver.database.windows.net",
-            "database": "TDS",
-            "authenticationType": "SqlLogin",
-            "user": "DeveloperCanBeDeleted",
-            "password": "",
-            "emptyPasswordInput": false,
-            "savePassword": true,
-            "profileName": "tds test"
-        },
-        {
-            "server": "tds-prod-sqlserver.database.windows.net",
-            "database": "TDS",
-            "authenticationType": "SqlLogin",
-            "user": "DeveloperCanBeDeleted",
-            "password": "",
-            "emptyPasswordInput": false,
-            "savePassword": true,
-            "profileName": "tds prod"
-        }
-    ],
-    "cmake.configureOnOpen": false,
-    "editor.formatOnSave": true,
-    "[sql]": {
-        "editor.defaultFormatter": "ms-mssql.mssql",
-        "editor.formatOnSave": false
+    "zsh": {
+      "path": "zsh"
     },
-    "[rust]": {
-        "editor.indentSize": 2
+    "fish": {
+      "path": "fish"
     },
-    "typescript.preferences.quoteStyle": "single",
-    "javascript.preferences.quoteStyle": "single",
-    "editor.indentSize": "tabSize"
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    },
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    }
+  },
+  "explorer.confirmDragAndDrop": false,
+  "C_Cpp.clang_format_fallbackStyle": "Google",
+  "debug.onTaskErrors": "abort",
+  "mssql.connections": [
+    {
+      "server": "nobmaptestdata-sqlsrv.database.windows.net",
+      "database": "spacesdb",
+      "authenticationType": "SqlLogin",
+      "user": "gaiaadmin",
+      "password": "",
+      "emptyPasswordInput": false,
+      "savePassword": true,
+      "profileName": "atlas test"
+    },
+    {
+      "server": "tds-test-sqlserver.database.windows.net",
+      "database": "TDS",
+      "authenticationType": "SqlLogin",
+      "user": "DeveloperCanBeDeleted",
+      "password": "",
+      "emptyPasswordInput": false,
+      "savePassword": true,
+      "profileName": "tds test"
+    },
+    {
+      "server": "tds-prod-sqlserver.database.windows.net",
+      "database": "TDS",
+      "authenticationType": "SqlLogin",
+      "user": "DeveloperCanBeDeleted",
+      "password": "",
+      "emptyPasswordInput": false,
+      "savePassword": true,
+      "profileName": "tds prod"
+    },
+    {
+      "server": "tds-test-sqlserver.database.windows.net",
+      "database": "tds_adf_test",
+      "authenticationType": "SqlLogin",
+      "user": "DeveloperCanBeDeleted",
+      "password": "",
+      "emptyPasswordInput": false,
+      "savePassword": true,
+      "profileName": "tds test adf"
+    }
+  ],
+  "cmake.configureOnOpen": false,
+  "editor.formatOnSave": true,
+  "[sql]": {
+    "editor.defaultFormatter": "ms-mssql.mssql",
+    "editor.formatOnSave": false
+  },
+  "[rust]": {
+    "editor.indentSize": 2
+  },
+  "typescript.preferences.quoteStyle": "single",
+  "javascript.preferences.quoteStyle": "single",
+  "editor.indentSize": "tabSize",
+  "editor.inlayHints.enabled": "offUnlessPressed"
 }
