@@ -56,6 +56,10 @@ def mute_sink(qtile):
 def mute_source(qtile):
     run('pactl set-source-mute @DEFAULT_SOURCE@ toggle')
 
+@lazy.function
+def update_system(qtile):
+    run('alacritty -e sudo pacman -Syu')
+
 color_fg         = '#bbc2cf'
 color_bg         = '#111111'
 color_bg_alt     = '#191919'
@@ -279,7 +283,8 @@ screens = [
                     colour_no_updates='#2257a0',
                     distro='Arch_checkupdates',
                     display_format=' {updates}',
-                    no_update_string=' 0'
+                    no_update_string=' 0',
+                    mouse_callbacks = {'Button1': update_system}
                 ),
                 widget.Sep(
                     foreground=color_fg,
