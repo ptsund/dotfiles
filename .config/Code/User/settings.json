@@ -16,7 +16,7 @@
       // "activityBarBadge.foreground": "#333333",
       "badge.background": "#333333",
       "editor.background": "#111111",
-      "editorGroupHeader.tabsBackground": "#191919",
+      "editorGroupHeader.tabsBackground": "#222222",
       "editorIndentGuide.background": "#3f444a",
       "panel.background": "#191919",
       "sideBar.background": "#191919",
@@ -24,11 +24,11 @@
       "sideBarSectionHeader.background": "#222222",
       "statusBar.background": "#333333",
       "statusBar.noFolderBackground": "#333333",
-      "tab.activeBorderTop": "#191919",
-      "tab.border": "#191919",
-      "tab.hoverBackground": "#222222",
-      "tab.inactiveBackground": "#111111",
-      "tab.activeBackground": "#333333",
+      "tab.activeBorderTop": "#111111",
+      "tab.border": "#111111",
+      "tab.hoverBackground": "#111111",
+      "tab.inactiveBackground": "#222222",
+      "tab.activeBackground": "#111111",
       "terminal.background": "#111111",
       "debugToolBar.background": "#222222"
     },
@@ -108,6 +108,16 @@
       "emptyPasswordInput": false,
       "savePassword": true,
       "profileName": "tds test adf"
+    },
+    {
+      "server": "tds-test-sqlserver.database.windows.net",
+      "database": "TDS",
+      "authenticationType": "SqlLogin",
+      "user": "DeveloperCanBeDeleted",
+      "password": "",
+      "emptyPasswordInput": false,
+      "savePassword": true,
+      "profileName": "TDS test"
     }
   ],
   "cmake.configureOnOpen": false,
@@ -122,5 +132,8 @@
   "typescript.preferences.quoteStyle": "single",
   "javascript.preferences.quoteStyle": "single",
   "editor.indentSize": "tabSize",
-  "editor.inlayHints.enabled": "offUnlessPressed"
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "[python]": {
+    "editor.formatOnType": true
+  }
 }
