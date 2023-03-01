@@ -212,10 +212,12 @@ export PATH="$PATH:$HOME/.local/bin/jetbrains-2021.3.4/bin:$HOME/.emacs.d/bin:$H
 export DOTNET_ROOT="$HOME/.dotnet"
 export HISTTIMEFORMAT='%F %T '
 export curseforge=CurseForge-0.198.1-29_703140e0b962037d84be40bac6be84e0.AppImage
-
+export EDITOR=vim
 
 export PATH=$PATH:/home/psm/bin
 
 source '/home/psm/lib/azure-cli/az.completion'
 
 eval "$(starship init bash)"
+
+source /home/psm/.config/broot/launcher/bash/br
